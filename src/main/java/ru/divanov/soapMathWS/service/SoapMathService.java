@@ -7,23 +7,26 @@ import javax.jws.WebService;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
+/**
+ * Service Endpoint Interface
+ */
+
 @WebService(
-        serviceName = "MathService",
-        name = "MathPortType",
-        targetNamespace = "http://divanov.org")
+        targetNamespace = "http://service.ws.sample/",
+        name = "SoapMathService")
 public interface SoapMathService {
 
-    @WebResult(name = "parameters", targetNamespace = "http://divanov.org/complex")
+    @WebResult(name = "return", targetNamespace = "")
     @RequestWrapper(
             localName = "getSolution",
-            targetNamespace = "http://service.ws.sample",
-            className = "ru.divanov.soapMathWS.service.SoapMathService")
-    @WebMethod(operationName = "create", action = "urn:GetSolution")
+            targetNamespace = "http://service.ws.sample/",
+            className = "sample.ws.service.SoapMathService")
+    @WebMethod(action = "urn:GetSolution")
     @ResponseWrapper(
             localName = "getSolutionResponse",
-            targetNamespace = "http://service.ws.sample",
-            className = "ru.divanov.soapMathWS.service.GetSolutionResponse")
-    double getSolution(@WebParam(name = "a", targetNamespace = "") double a,
+            targetNamespace = "http://service.ws.sample/",
+            className = "sample.ws.service.GetSolutionResponse")
+    String getSolution(@WebParam(name = "a", targetNamespace = "") double a,
                        @WebParam(name = "b", targetNamespace = "") double b,
                        @WebParam(name = "c", targetNamespace = "") double c);
 }

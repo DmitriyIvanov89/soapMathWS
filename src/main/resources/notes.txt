@@ -1,0 +1,26 @@
+In the case of an SEI the methods defined are intended to be mapped to operations exposed by a service.
+The SEI corresponds to a wsdl:portType element. The methods defined by the SEI correspond to wsdl:operation elements in the wsdl:portType element.
+
+JAX-WS relies on the annotation feature of Java 5.
+The JAX-WS annotations are used to specify the metadata used to map the SEI to a fully specified service definition.
+Among the information provided in the annotations are the following:
+
+- The target namespace for the service.
+- The name of the class used to hold the request message.
+- The name of the class used to hold the response message.
+- If an operation is a one way operation.
+- The binding style the service uses.
+- The name of the class used for any custom exceptions.
+- The namespaces under which the types used by the service are defined.
+
+The @WebMethod annotation is defined by the javax.jws.WebMethod interface.
+It is placed on the methods in the SEI. The @WebMethod annotation provides the information that is normally represented
+in the wsdl:operation element describing the operation to which the method is associated.
+
+for exception:
+The @WebFault annotation is defined by the javax.xml.ws.WebFault interface.
+It is placed on exceptions that are thrown by your SEI. The @WebFault annotation is used to map the Java exception to a wsdl:fault element.
+This information is used to marshall the exceptions into a representation that can be processed by both the service and its consumers
+
+
+

@@ -1,7 +1,7 @@
 package ru.divanov.soapMathWS.config;
 
-import org.apache.cxf.Bus;
 
+import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +19,8 @@ public class WSConfig {
     @Bean
     public Endpoint soapEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, new SoapMathServiceImpl());
-        endpoint.publish();
+        // for generated wsdl
+        endpoint.publish("/MathService");
         return endpoint;
     }
 

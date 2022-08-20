@@ -1,4 +1,4 @@
-package ru.divanov.soapMathWS;
+package ru.divanov.soapMathWS.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
