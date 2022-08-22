@@ -15,7 +15,7 @@ import javax.xml.ws.ResponseWrapper;
 @SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL) // Style.DOCUMENTATION - generate schema
 public interface SoapMathService {
 
-    @WebMethod(operationName = "getSolutionQuadraticEquation",action = "urn:GetSolutionQuadraticEquation")
+    @WebMethod(operationName = "getSolutionQuadraticEquation", action = "urn:GetSolutionQuadraticEquation")
     @WebResult(name = "return", targetNamespace = "http://ru.divanov.soapMathWS.service/")
     @RequestWrapper(
             localName = "getSolutionQuadraticEquation",

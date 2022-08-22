@@ -22,5 +22,10 @@ The @WebFault annotation is defined by the javax.xml.ws.WebFault interface.
 It is placed on exceptions that are thrown by your SEI. The @WebFault annotation is used to map the Java exception to a wsdl:fault element.
 This information is used to marshall the exceptions into a representation that can be processed by both the service and its consumers
 
+********************
+
+<wsdl:documentation>JournalService</wsdl:documentation>
+<xs:element name="idSysCode" minOccurs="0" type="xs:string" nillable="true"/>
+
 
 
