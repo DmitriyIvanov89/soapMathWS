@@ -5,13 +5,13 @@ import javax.jws.WebService;
 
 @WebService(
         serviceName = "SoapMathService",
-        portName = "MathServicePort",
+        portName = "SoapMathServicePort",
         targetNamespace = "http://ru.divanov.soapMathWS.service/",
         endpointInterface = "ru.divanov.soapMathWS.service.SoapMathService")
 public class SoapMathServiceImpl implements SoapMathService {
 
     @Override
-    public String getSolution(double a, double b, double c) {
+    public String getSolutionQuadraticEquation(double a, double b, double c) {
         double discriminant = Math.pow(b, 2) - 4 * a * c;
         double x, x1, x2;
 

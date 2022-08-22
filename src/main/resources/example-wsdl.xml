@@ -1,0 +1,54 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://ru.divanov.soapMathWS.service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="SoapMathService"
+                  targetNamespace="http://ru.divanov.soapMathWS.service/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ru.divanov.soapMathWS.service/"
+                   elementFormDefault="unqualified" targetNamespace="http://ru.divanov.soapMathWS.service/"
+                   version="1.0">
+            <xs:element name="getSolution" type="tns:getSolution"/>
+            <xs:element name="getSolutionResponse" type="tns:getSolutionResponse"/>
+            <xs:complexType name="getSolution">
+                <xs:sequence>
+                    <xs:element name="a" type="xs:double"/>
+                    <xs:element name="b" type="xs:double"/>
+                    <xs:element name="c" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getSolutionResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getSolution">
+        <wsdl:part element="tns:getSolution" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getSolutionResponse">
+        <wsdl:part element="tns:getSolutionResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="SoapMathService">
+        <wsdl:operation name="getSolution">
+            <wsdl:input message="tns:getSolution" name="getSolution"></wsdl:input>
+            <wsdl:output message="tns:getSolutionResponse" name="getSolutionResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SoapMathServiceSoapBinding" type="tns:SoapMathService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getSolution">
+            <soap:operation soapAction="urn:GetSolution" style="document"/>
+            <wsdl:input name="getSolution">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getSolutionResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SoapMathService">
+        <wsdl:port binding="tns:SoapMathServiceSoapBinding" name="MathServicePort">
+            <soap:address location="http://localhost:8080/services/SoapMathService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
