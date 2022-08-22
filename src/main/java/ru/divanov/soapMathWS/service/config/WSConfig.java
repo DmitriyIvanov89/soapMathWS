@@ -1,4 +1,4 @@
-package ru.divanov.soapMathWS.config;
+package ru.divanov.soapMathWS.service.config;
 
 
 import org.apache.cxf.Bus;
@@ -19,8 +19,7 @@ public class WSConfig {
     @Bean
     public Endpoint soapEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, new SoapMathServiceImpl());
-        endpoint.publish("http://localhost:8080/services/SoapMathService");
+        endpoint.publish("/SoapMathService");
         return endpoint;
     }
-
 }

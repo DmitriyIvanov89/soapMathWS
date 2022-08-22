@@ -7,9 +7,6 @@ import javax.jws.WebService;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
-/**
- * Service Endpoint Interface
- */
 
 @WebService(
         targetNamespace = "http://ru.divanov.soapMathWS.service/",
