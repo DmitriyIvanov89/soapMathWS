@@ -12,19 +12,19 @@ import javax.xml.ws.ResponseWrapper;
  */
 
 @WebService(
-        targetNamespace = "http://service.ws.sample/",
+        targetNamespace = "http://ru.divanov.soapMathWS.service/",
         name = "SoapMathService")
 public interface SoapMathService {
 
     @WebResult(name = "return", targetNamespace = "")
     @RequestWrapper(
             localName = "getSolution",
-            targetNamespace = "http://service.ws.sample/",
-            className = "sample.ws.service.SoapMathService")
+            targetNamespace = "http://ru.divanov.soapMathWS.service/",
+            className = "ru.divanov.soapMathWS.service.GetSolution")
     @WebMethod(action = "urn:GetSolution")
     @ResponseWrapper(
             localName = "getSolutionResponse",
-            targetNamespace = "http://service.ws.sample/",
+            targetNamespace = "http://ru.divanov.soapMathWS.service/",
             className = "sample.ws.service.GetSolutionResponse")
     String getSolution(@WebParam(name = "a", targetNamespace = "") double a,
                        @WebParam(name = "b", targetNamespace = "") double b,

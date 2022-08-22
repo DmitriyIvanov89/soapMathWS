@@ -3,9 +3,9 @@ package ru.divanov.soapMathWS.service;
 import javax.jws.WebService;
 
 @WebService(
-        serviceName = "Math",
+        serviceName = "SoapMathService",
         portName = "MathServicePort",
-        targetNamespace = "http://service.ws.sample/",
+        targetNamespace = "http://ru.divanov.soapMathWS.service/",
         endpointInterface = "ru.divanov.soapMathWS.service.SoapMathService")
 public class SoapMathServiceImpl implements SoapMathService {
 

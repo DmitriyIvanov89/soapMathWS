@@ -19,8 +19,7 @@ public class WSConfig {
     @Bean
     public Endpoint soapEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, new SoapMathServiceImpl());
-        // for generated wsdl
-        endpoint.publish("/MathService");
+        endpoint.publish("http://localhost:8080/services/SoapMathService");
         return endpoint;
     }
 
