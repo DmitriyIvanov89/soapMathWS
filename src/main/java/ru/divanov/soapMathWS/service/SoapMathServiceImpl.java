@@ -20,10 +20,10 @@ public class SoapMathServiceImpl implements SoapMathService {
         if (discriminant > 0) {
             x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
             x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
-            return String.format("Education: x1 - %f, x2 - %f", x1, x2);
+            return String.format("Solutions: x1 = %f, x2 = %f", x1, x2);
         } else if (discriminant == 0) {
             x = -b / (2 * a);
-            return String.format("Education: x1,2 = %f", x);
+            return String.format("Solutions: x1,2 = %f", x);
         } else {
             throw new ArithmeticException("Discriminant < 0");
         }

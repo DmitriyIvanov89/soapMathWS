@@ -24,8 +24,18 @@ This information is used to marshall the exceptions into a representation that c
 
 ********************
 
+????
 <wsdl:documentation>JournalService</wsdl:documentation>
 <xs:element name="idSysCode" minOccurs="0" type="xs:string" nillable="true"/>
+
+<service impl>
+- a != 0 -> exception;
+- a,b,c - required param -> exception;
+- return string education and string solutions;
+- Math round 2 symbols
+------
+- add new modul in project
+
 
 
 
