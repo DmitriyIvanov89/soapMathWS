@@ -1,5 +1,7 @@
 package ru.divanov.soapMathWS.server.service;
 
+import ru.divanov.soapMathWS.model.MessageResponse;
+
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -12,7 +14,8 @@ import javax.xml.ws.ResponseWrapper;
 @WebService(
         name = "SoapMathService",
         targetNamespace = "http://ru.divanov.soapMathWS.service/")
-@SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL) // Style.DOCUMENTATION - generate schema
+@SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
+// Style.DOCUMENTATION - generate schema
 public interface SoapMathService {
 
     @WebMethod(operationName = "getSolutionQuadraticEquation", action = "urn:GetSolutionQuadraticEquation")
@@ -26,6 +29,6 @@ public interface SoapMathService {
             targetNamespace = "http://ru.divanov.soapMathWS.service/",
             className = "ru.divanov.soapMathWS.server.service.GetSolutionQuadraticEquationResponse")
     String getSolutionQuadraticEquation(@WebParam(name = "a", targetNamespace = "") double a,
-                                        @WebParam(name = "b", targetNamespace = "") double b,
-                                        @WebParam(name = "c", targetNamespace = "") double c);
+                                                 @WebParam(name = "b", targetNamespace = "") double b,
+                                                 @WebParam(name = "c", targetNamespace = "") double c);
 }
