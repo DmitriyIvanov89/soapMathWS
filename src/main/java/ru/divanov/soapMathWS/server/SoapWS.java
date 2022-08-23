@@ -1,11 +1,11 @@
-package ru.divanov.soapMathWS.service;
+package ru.divanov.soapMathWS.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SoapWS {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SpringApplication.run(SoapWS.class, args);
     }
 }
