@@ -1,7 +1,5 @@
 package ru.divanov.soapMathWS.server.service;
 
-import ru.divanov.soapMathWS.model.MessageResponse;
-
 import javax.jws.WebResult;
 import javax.jws.WebService;
 

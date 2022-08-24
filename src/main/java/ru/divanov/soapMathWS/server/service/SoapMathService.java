@@ -1,7 +1,5 @@
 package ru.divanov.soapMathWS.server.service;
 
-import ru.divanov.soapMathWS.model.MessageResponse;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -23,12 +21,12 @@ public interface SoapMathService {
     @RequestWrapper(
             localName = "getSolutionQuadraticEquation",
             targetNamespace = "http://ru.divanov.soapMathWS.service/",
-            className = "ru.divanov.soapMathWS.server.service.GetSolutionQuadraticEquation")
+            className = "ru.divanov.soapMathWS.model.GetSolutionQuadraticEquation")
     @ResponseWrapper(
             localName = "getSolutionQuadraticEquationResponse",
             targetNamespace = "http://ru.divanov.soapMathWS.service/",
-            className = "ru.divanov.soapMathWS.server.service.GetSolutionQuadraticEquationResponse")
+            className = "ru.divanov.soapMathWS.model.GetSolutionQuadraticEquationResponse")
     String getSolutionQuadraticEquation(@WebParam(name = "a", targetNamespace = "") double a,
-                                                 @WebParam(name = "b", targetNamespace = "") double b,
-                                                 @WebParam(name = "c", targetNamespace = "") double c);
+                                        @WebParam(name = "b", targetNamespace = "") double b,
+                                        @WebParam(name = "c", targetNamespace = "") double c);
 }
