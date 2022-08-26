@@ -1,7 +1,6 @@
 package ru.divanov.soapMathWS.server.service;
 
-import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
-import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+
 import ru.divanov.soapMathWS.server.model.GetSolutionQuadraticEquationResponse;
 
 import javax.jws.WebService;
@@ -14,11 +13,10 @@ import javax.jws.WebService;
 public class SoapMathServiceImpl implements SoapMathService {
 
     @Override
-    @PayloadRoot(namespace = "http://ru.divanov.soapMathWS.service/", localPart = "getSolutionQuadraticEquationRequest")
-    @ResponsePayload
     public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(double a, double b, double c) {
         GetSolutionQuadraticEquationResponse response = new GetSolutionQuadraticEquationResponse();
         response.setFormula("Formula");
+        response.setDiscriminant(a * (b + c));
         response.setX1(a);
         response.setX2(b + c);
         return response;

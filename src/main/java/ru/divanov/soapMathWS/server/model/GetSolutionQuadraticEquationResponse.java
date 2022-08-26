@@ -3,15 +3,18 @@ package ru.divanov.soapMathWS.server.model;
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getSolutionQuadraticEquationResponse", propOrder = {"formula", "x1", "x2"})
+@XmlType(name = "getSolutionQuadraticEquationResponse", propOrder = {"formula", "discriminant", "x1", "x2"})
 public class GetSolutionQuadraticEquationResponse {
-    @XmlElement(required = true)
+    @XmlElement(required = true, name = "Formula")
     private String formula;
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, name = "D")
+    private double discriminant;
+
+    @XmlElement(required = true, name = "X1")
     private double x1;
 
-    @XmlElement
+    @XmlElement(name = "X2")
     private double x2;
 
     public String getFormula() {
@@ -20,6 +23,14 @@ public class GetSolutionQuadraticEquationResponse {
 
     public void setFormula(String formula) {
         this.formula = formula;
+    }
+
+    public double getDiscriminant() {
+        return discriminant;
+    }
+
+    public void setDiscriminant(double discriminant) {
+        this.discriminant = discriminant;
     }
 
     public double getX1() {
