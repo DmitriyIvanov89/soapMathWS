@@ -1,15 +1,11 @@
 package ru.divanov.soapMathWS.server.service;
 
-import org.springframework.ws.server.endpoint.annotation.RequestPayload;
-import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import ru.divanov.soapMathWS.server.model.GetSolutionQuadraticEquation;
 import ru.divanov.soapMathWS.server.model.GetSolutionQuadraticEquationResponse;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
-import javax.xml.bind.JAXBElement;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 

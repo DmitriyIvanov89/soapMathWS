@@ -1,6 +1,5 @@
 package ru.divanov.soapMathWS.server.config;
 
-
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
