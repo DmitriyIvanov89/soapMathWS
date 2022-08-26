@@ -31,7 +31,7 @@ public class SoapMathServiceImpl implements SoapMathService {
             throw new ArithmeticException("Discriminant < 0"); // my exception
 
         } else {
-            throw new ArithmeticException("A must be > 0");
+            throw new ArithmeticException("'A' must be > 0");
         }
     }
 }

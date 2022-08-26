@@ -6,9 +6,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
-import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
-
 
 @WebService(
         name = "SoapMathService",
@@ -17,10 +15,6 @@ import javax.xml.ws.ResponseWrapper;
 public interface SoapMathService {
 
     @WebMethod(operationName = "getSolutionQuadraticEquation", action = "urn:getSolutionQuadraticEquation")
-    @RequestWrapper(
-            localName = "getSolutionQuadraticEquationRequest",
-            targetNamespace = "http://ru.divanov.soapMathWS.service/",
-            className = "ru.divanov.soapMathWS.server.model.GetSolutionQuadraticEquation")
     @ResponseWrapper(
             localName = "getSolutionQuadraticEquationResponse",
             targetNamespace = "http://ru.divanov.soapMathWS.service/",
