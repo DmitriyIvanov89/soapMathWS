@@ -1,11 +1,11 @@
-package ru.divanov.soapMathWS.server.config;
+package ru.divanov.mathws.server.config;
 
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.divanov.soapMathWS.server.service.SoapMathServiceImpl;
+import ru.divanov.mathws.server.service.MathWebServiceImpl;
 
 import javax.xml.ws.Endpoint;
 
@@ -17,8 +17,8 @@ public class WSConfig {
 
     @Bean
     public Endpoint soapEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, new SoapMathServiceImpl());
-        endpoint.publish("/SoapMathService");
+        EndpointImpl endpoint = new EndpointImpl(bus, new MathWebServiceImpl());
+        endpoint.publish("/MathService");
         return endpoint;
     }
 }

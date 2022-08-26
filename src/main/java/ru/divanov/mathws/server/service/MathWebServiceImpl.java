@@ -1,16 +1,16 @@
-package ru.divanov.soapMathWS.server.service;
+package ru.divanov.mathws.server.service;
 
 
-import ru.divanov.soapMathWS.server.model.GetSolutionQuadraticEquationResponse;
+import ru.divanov.mathws.server.model.GetSolutionQuadraticEquationResponse;
 
 import javax.jws.WebService;
 
 @WebService(
-        serviceName = "SoapMathService",
-        portName = "SoapMathServicePort",
-        targetNamespace = "http://ru.divanov.soapMathWS.server.service/",
-        endpointInterface = "ru.divanov.soapMathWS.server.service.SoapMathService")
-public class SoapMathServiceImpl implements SoapMathService {
+        serviceName = "MathWebService",
+        portName = "MathWebServicePort",
+        targetNamespace = "http://ru.divanov.mathws.server.service/",
+        endpointInterface = "ru.divanov.mathws.server.service.MathWebService")
+public class MathWebServiceImpl implements MathWebService {
 
     @Override
     public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(double a, double b, double c) {

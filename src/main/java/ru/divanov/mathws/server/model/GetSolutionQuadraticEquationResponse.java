@@ -1,7 +1,6 @@
-package ru.divanov.soapMathWS.server.model;
+package ru.divanov.mathws.server.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.xml.bind.annotation.*;
 
@@ -21,8 +20,4 @@ public class GetSolutionQuadraticEquationResponse {
 
     @XmlElement(name = "X2")
     private double x2;
-
-    public String getFormula() {
-        return formula;
-    }
 }
