@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getSolutionQuadraticEducation", propOrder = {"a", "b", "c"})
 public class GetQuadraticEducationSolution {
-    @XmlElement(name = "A", required = true)
+    @XmlElement(name = "A", required = true, defaultValue = "0")
     private Double a;
 
     @XmlElement(name = "B", required = true)

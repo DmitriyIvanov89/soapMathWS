@@ -19,7 +19,7 @@ public class MathWebServiceImpl implements MathWebService {
     public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws MathException {
         GetSolutionQuadraticEquationResponse response = new GetSolutionQuadraticEquationResponse();
 
-        if (request.getA() > 0) {
+        if (request.getA() != 0) {
             response.setDiscriminant(Math.pow(request.getB(), 2) - 4 * request.getA() * request.getC());
             if (response.getDiscriminant() > 0) {
                 response.setFormula(String.format("%.1fX^2+%.1fX+%.1f=0", request.getA(), request.getB(), request.getC()));
@@ -35,7 +35,7 @@ public class MathWebServiceImpl implements MathWebService {
                     new QuadraticEducationFault(String.format("%.1fx^2+%.1fX+%.1f=0", request.getA(), request.getB(), request.getC()),
                             response.getDiscriminant()));
         } else {
-            throw new MathException("Param A must be > 0");
+            throw new MathException("Coefficient 'A' mustn't be equal 0");
         }
     }
 }
