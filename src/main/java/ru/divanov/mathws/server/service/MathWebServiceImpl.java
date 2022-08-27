@@ -29,7 +29,7 @@ public class MathWebServiceImpl implements MathWebService {
                 response.setX1(-request.getB() / (2 * request.getA()));
                 return response;
             }
-            throw new ArithmeticException("Discriminant < 0"); // my exception
+            throw new ArithmeticException("D < 0");
 
         } else {
             throw new ArithmeticException("'A' must be > 0");
