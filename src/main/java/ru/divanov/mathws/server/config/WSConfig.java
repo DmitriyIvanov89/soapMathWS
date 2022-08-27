@@ -18,7 +18,7 @@ public class WSConfig {
     @Bean
     public Endpoint soapEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, new MathWebServiceImpl());
-        endpoint.publish("/MathWebService");
+        endpoint.publish("/MathWebServiceEndpoint");
         return endpoint;
     }
 }
