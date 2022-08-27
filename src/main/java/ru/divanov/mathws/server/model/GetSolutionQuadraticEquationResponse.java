@@ -3,6 +3,7 @@ package ru.divanov.mathws.server.model;
 import lombok.*;
 
 import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -13,11 +14,11 @@ public class GetSolutionQuadraticEquationResponse {
     private String formula;
 
     @XmlElement(required = true, name = "D")
-    private double discriminant;
+    private Double discriminant;
 
     @XmlElement(required = true, name = "X1")
-    private double x1;
+    private Double x1;
 
     @XmlElement(name = "X2")
-    private double x2;
+    private Double x2;
 }
