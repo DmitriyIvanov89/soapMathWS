@@ -2,6 +2,7 @@ package ru.divanov.mathws.server.service;
 
 import ru.divanov.mathws.server.model.GetQuadraticEducationSolution;
 import ru.divanov.mathws.server.model.GetSolutionQuadraticEquationResponse;
+import ru.divanov.mathws.server.model.exceptions.MathException;
 
 import javax.jws.WebMethod;
 import javax.jws.WebResult;
@@ -26,5 +27,5 @@ public interface MathWebService {
             localName = "getSolutionQuadraticEquationResponse",
             targetNamespace = "http://ru.divanov.mathws.service/",
             className = "ru.divanov.mathws.server.model.GetSolutionQuadraticEquationResponse")
-    GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request);
+    GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws MathException;
 }

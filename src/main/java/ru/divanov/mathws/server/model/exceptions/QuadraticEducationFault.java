@@ -14,13 +14,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "MathWSException")
 public class QuadraticEducationFault {
 
-    @XmlElement(required = true)
-    private String errorMessage;
-
-    @XmlElement
+    @XmlElement(required = true, name = "Formula")
     private String formula;
 
-    @XmlElement
+    @XmlElement(required = true, name = "D")
     private Double discriminant;
 
+    public QuadraticEducationFault(String formula, Double discriminant) {
+        this.formula = formula;
+        this.discriminant = discriminant;
+    }
 }

@@ -3,6 +3,8 @@ package ru.divanov.mathws.server.service;
 
 import ru.divanov.mathws.server.model.GetQuadraticEducationSolution;
 import ru.divanov.mathws.server.model.GetSolutionQuadraticEquationResponse;
+import ru.divanov.mathws.server.model.exceptions.MathException;
+import ru.divanov.mathws.server.model.exceptions.QuadraticEducationFault;
 
 import javax.jws.WebService;
 
@@ -14,7 +16,7 @@ import javax.jws.WebService;
 public class MathWebServiceImpl implements MathWebService {
 
     @Override
-    public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) {
+    public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws MathException {
         GetSolutionQuadraticEquationResponse response = new GetSolutionQuadraticEquationResponse();
 
         if (request.getA() > 0) {
@@ -29,10 +31,11 @@ public class MathWebServiceImpl implements MathWebService {
                 response.setX1(-request.getB() / (2 * request.getA()));
                 return response;
             }
-            throw new ArithmeticException("D < 0");
-
+            throw new MathException("Discriminant is less than 0",
+                    new QuadraticEducationFault(String.format("%.1fx^2+%.1fX+%.1f=0", request.getA(), request.getB(), request.getC()),
+                            response.getDiscriminant()));
         } else {
-            throw new ArithmeticException("'A' must be > 0");
+            throw new MathException("Param A must be > 0");
         }
     }
 }
