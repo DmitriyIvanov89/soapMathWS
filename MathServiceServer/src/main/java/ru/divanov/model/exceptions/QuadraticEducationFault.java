@@ -1,4 +1,4 @@
-package ru.divanov.mathws.server.model.exceptions;
+package ru.divanov.model.exceptions;
 
 import lombok.Getter;
 import lombok.Setter;

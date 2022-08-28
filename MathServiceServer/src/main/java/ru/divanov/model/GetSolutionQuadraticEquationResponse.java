@@ -1,9 +1,8 @@
-package ru.divanov.mathws.server.model;
+package ru.divanov.model;
 
 import lombok.*;
 
 import javax.xml.bind.annotation.*;
-import java.io.Serializable;
 
 @Getter
 @Setter

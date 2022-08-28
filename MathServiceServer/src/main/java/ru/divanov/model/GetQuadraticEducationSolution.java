@@ -1,4 +1,4 @@
-package ru.divanov.mathws.server.model;
+package ru.divanov.model;
 
 import lombok.Getter;
 import lombok.Setter;

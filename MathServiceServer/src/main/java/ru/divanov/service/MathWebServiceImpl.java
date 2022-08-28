@@ -1,18 +1,18 @@
-package ru.divanov.mathws.server.service;
+package ru.divanov.service;
 
 
-import ru.divanov.mathws.server.model.GetQuadraticEducationSolution;
-import ru.divanov.mathws.server.model.GetSolutionQuadraticEquationResponse;
-import ru.divanov.mathws.server.model.exceptions.MathException;
-import ru.divanov.mathws.server.model.exceptions.QuadraticEducationFault;
+import ru.divanov.model.GetQuadraticEducationSolution;
+import ru.divanov.model.GetSolutionQuadraticEquationResponse;
+import ru.divanov.model.exceptions.MathException;
+import ru.divanov.model.exceptions.QuadraticEducationFault;
 
 import javax.jws.WebService;
 
 @WebService(
         serviceName = "MathWebService",
         portName = "MathWebServicePort",
-        targetNamespace = "http://ru.divanov.mathws.server.service/",
-        endpointInterface = "ru.divanov.mathws.server.service.MathWebService")
+        targetNamespace = "http://ru.divanov",
+        endpointInterface = "ru.divanov.service.MathWebService")
 public class MathWebServiceImpl implements MathWebService {
 
     @Override

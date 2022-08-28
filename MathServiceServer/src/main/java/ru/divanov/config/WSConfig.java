@@ -1,11 +1,11 @@
-package ru.divanov.mathws.server.config;
+package ru.divanov.config;
 
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.divanov.mathws.server.service.MathWebServiceImpl;
+import ru.divanov.service.MathWebServiceImpl;
 
 import javax.xml.ws.Endpoint;
 

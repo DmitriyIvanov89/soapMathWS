@@ -1,4 +1,4 @@
-package ru.divanov.mathws.server.model.exceptions;
+package ru.divanov.model.exceptions;
 
 import lombok.Getter;
 
@@ -7,8 +7,8 @@ import javax.xml.ws.WebFault;
 @Getter
 @WebFault(
         name = "MathException",
-        faultBean = "ru.divanov.mathws.server.model.exceptions.QuadraticEducationFault",
-        targetNamespace = "http://ru.divanov.mathws.server.service/")
+        faultBean = "ru.divanov.model.exceptions.QuadraticEducationFault",
+        targetNamespace = "http://ru.divanov/")
 public class MathException extends Exception {
 
     private QuadraticEducationFault faultInfo;
