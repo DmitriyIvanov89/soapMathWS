@@ -19,10 +19,9 @@ public class MathWebServiceImpl implements MathWebService {
     public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws MathException {
         GetSolutionQuadraticEquationResponse response = new GetSolutionQuadraticEquationResponse();
 
-        String formula = String.format("%.1fX^2+%.1fX+%.1f=0", request.getA(), request.getB(), request.getC());
-
         if (request.getA() != 0) {
             response.setDiscriminant(Math.pow(request.getB(), 2) - 4 * request.getA() * request.getC());
+            String formula = String.format("%.1fX^2+%.1fX+%.1f=0", request.getA(), request.getB(), request.getC());
             if (response.getDiscriminant() > 0) {
                 response.setFormula(formula);
                 response.setX1((-request.getB() + Math.sqrt(response.getDiscriminant())) / (2 * request.getA()));
