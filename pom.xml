@@ -2,10 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <modules>
-        <module>MathServiceServer</module>
-        <module>MathServiceClient</module>
-    </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -26,7 +22,13 @@
         <maven.compiler.target>8</maven.compiler.target>
         <cxf.version>3.5.2</cxf.version>
         <lombok.version>1.18.24</lombok.version>
+        <junit.version>3.8.1</junit.version>
     </properties>
+
+    <modules>
+        <module>MathServiceServer</module>
+        <module>MathServiceClient</module>
+    </modules>
 
     <dependencies>
         <dependency>
@@ -69,13 +71,44 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        <id>schemagen</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>schemagen</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sources>
+                        <source>MathServiceServer/src/main/java/ru/divanov</source>
+                        <source>MathServiceServer/src/main/java/ru/divanov/model</source>
+                    </sources>
+                    <!--                    <outputDirectory>MathServiceServer/src/main/resources</outputDirectory>-->
+<!--                    <outputDirectory>${project.build.directory}/classes</outputDirectory>-->
+<!--                    <transformSchemas>-->
+<!--                        <transformSchema>-->
+<!--                            <uri>ru.divanov</uri>-->
+<!--                            <toPrefix>math</toPrefix>-->
+<!--                            <toFile>math.xsd</toFile>-->
+<!--                        </transformSchema>-->
+<!--                    </transformSchemas>-->
+                </configuration>
             </plugin>
         </plugins>
     </build>

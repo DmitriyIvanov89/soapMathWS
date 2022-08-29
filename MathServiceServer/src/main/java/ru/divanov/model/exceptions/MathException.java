@@ -2,6 +2,7 @@ package ru.divanov.model.exceptions;
 
 import lombok.Getter;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.ws.WebFault;
 
 @Getter
