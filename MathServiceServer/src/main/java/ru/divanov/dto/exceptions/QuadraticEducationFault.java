@@ -1,11 +1,10 @@
-package ru.divanov.model.exceptions;
+package ru.divanov.dto.exceptions;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.xml.bind.annotation.*;
-;
 
 @Getter
 @Setter

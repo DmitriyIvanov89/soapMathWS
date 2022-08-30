@@ -1,10 +1,10 @@
 package ru.divanov.service;
 
 
-import ru.divanov.model.GetQuadraticEducationSolution;
-import ru.divanov.model.GetSolutionQuadraticEquationResponse;
-import ru.divanov.model.exceptions.MathException;
-import ru.divanov.model.exceptions.QuadraticEducationFault;
+import ru.divanov.dto.GetQuadraticEducationSolution;
+import ru.divanov.dto.GetSolutionQuadraticEquationResponse;
+import ru.divanov.dto.exceptions.MathException;
+import ru.divanov.dto.exceptions.QuadraticEducationFault;
 
 import javax.jws.WebService;
 

@@ -1,4 +1,4 @@
-package ru.divanov.model;
+package ru.divanov.dto;
 
 import lombok.*;
 
