@@ -1,11 +1,13 @@
 package ru.divanov.model.exceptions;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.ws.WebFault;
 
 @Getter
+@NoArgsConstructor
 @WebFault(
         name = "MathException",
         faultBean = "ru.divanov.model.exceptions.QuadraticEducationFault",

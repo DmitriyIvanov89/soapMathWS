@@ -77,6 +77,20 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.3</version>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -84,7 +98,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>2.2</version>
+                <version>2.4</version>
                 <executions>
                     <execution>
                         <id>schemagen</id>
@@ -97,17 +111,16 @@
                 <configuration>
                     <sources>
                         <source>MathServiceServer/src/main/java/ru/divanov</source>
-                        <source>MathServiceServer/src/main/java/ru/divanov/model</source>
+<!--                        <source>MathServiceServer/src/main/java/ru/divanov/model/exceptions</source>-->
                     </sources>
-                    <!--                    <outputDirectory>MathServiceServer/src/main/resources</outputDirectory>-->
-<!--                    <outputDirectory>${project.build.directory}/classes</outputDirectory>-->
-<!--                    <transformSchemas>-->
-<!--                        <transformSchema>-->
-<!--                            <uri>ru.divanov</uri>-->
-<!--                            <toPrefix>math</toPrefix>-->
-<!--                            <toFile>math.xsd</toFile>-->
-<!--                        </transformSchema>-->
-<!--                    </transformSchemas>-->
+                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                    <transformSchemas>
+                        <transformSchema>
+                            <uri>https://divanov</uri>
+                            <toPrefix>di</toPrefix>
+                            <toFile>test.xsd</toFile>
+                        </transformSchema>
+                    </transformSchemas>
                 </configuration>
             </plugin>
         </plugins>
