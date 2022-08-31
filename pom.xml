@@ -78,8 +78,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web-services</artifactId>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jaxb2-maven-plugin</artifactId>
+            <version>2.2</version>
         </dependency>
     </dependencies>
 
@@ -98,16 +99,9 @@
                 </executions>
                 <configuration>
                     <sources>
-                        <source>${basedir}/src/main/java/ru/divanov/mathws/server/dto</source>
+                        <source>${basedir}/src/main/java/ru/divanov/dto</source>
                     </sources>
                     <outputDirectory>${project.build.directory}/classes</outputDirectory>
-                    <transformSchemas>
-                        <transformSchema>
-                            <uri>http://ru.divanov</uri>
-                            <toPrefix>di</toPrefix>
-                            <toFile>test.xsd</toFile>
-                        </transformSchema>
-                    </transformSchemas>
                 </configuration>
             </plugin>
         </plugins>
