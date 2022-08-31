@@ -3,8 +3,10 @@ package ru.divanov.service;
 
 import ru.divanov.dto.GetQuadraticEducationSolution;
 import ru.divanov.dto.GetSolutionQuadraticEquationResponse;
+import ru.divanov.dto.exceptions.ErrorResponseMessage;
 
 import javax.jws.WebService;
+import javax.xml.bind.JAXBException;
 import javax.xml.soap.SOAPException;
 
 @WebService(
@@ -15,7 +17,7 @@ import javax.xml.soap.SOAPException;
 public class MathWebServiceImpl implements MathWebService {
 
     @Override
-    public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws SOAPException {
+    public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws JAXBException {
         GetSolutionQuadraticEquationResponse response = new GetSolutionQuadraticEquationResponse();
 
         if (request.getA() != 0) {
@@ -31,9 +33,11 @@ public class MathWebServiceImpl implements MathWebService {
                 response.setX1(-request.getB() / (2 * request.getA()));
                 return response;
             }
-            throw new SOAPException("A < 0");
+//            throw new SOAPException("A < 0");
+            throw new JAXBException("A must be != 0");
         } else {
-            throw new ArithmeticException("Coefficient 'A' mustn't be equal 0");
+//            throw new SOAPException("Coefficient 'A' mustn't be equal 0");
+            throw new JAXBException("Coefficient 'A' mustn't be equal 0");
         }
     }
 }
