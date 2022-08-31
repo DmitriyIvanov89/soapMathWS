@@ -3,10 +3,9 @@ package ru.divanov.service;
 
 import ru.divanov.dto.GetQuadraticEducationSolution;
 import ru.divanov.dto.GetSolutionQuadraticEquationResponse;
-import ru.divanov.dto.exceptions.MathException;
-import ru.divanov.dto.exceptions.QuadraticEducationFault;
 
 import javax.jws.WebService;
+import javax.xml.soap.SOAPException;
 
 @WebService(
         serviceName = "MathWebService",
@@ -16,7 +15,7 @@ import javax.jws.WebService;
 public class MathWebServiceImpl implements MathWebService {
 
     @Override
-    public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws MathException {
+    public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws SOAPException {
         GetSolutionQuadraticEquationResponse response = new GetSolutionQuadraticEquationResponse();
 
         if (request.getA() != 0) {
@@ -32,9 +31,9 @@ public class MathWebServiceImpl implements MathWebService {
                 response.setX1(-request.getB() / (2 * request.getA()));
                 return response;
             }
-            throw new MathException("Discriminant is less than 0", new QuadraticEducationFault(formula, response.getDiscriminant()));
+            throw new SOAPException("A < 0");
         } else {
-            throw new MathException("Coefficient 'A' mustn't be equal 0");
+            throw new ArithmeticException("Coefficient 'A' mustn't be equal 0");
         }
     }
 }
