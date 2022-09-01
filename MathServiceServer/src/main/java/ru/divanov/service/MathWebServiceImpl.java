@@ -1,13 +1,13 @@
 package ru.divanov.service;
 
 
+import ru.divanov.dto.ErrorResponseMessage;
 import ru.divanov.dto.GetQuadraticEducationSolution;
 import ru.divanov.dto.GetSolutionQuadraticEquationResponse;
-import ru.divanov.dto.exceptions.ErrorResponseMessage;
+import ru.divanov.exceptions.QuadraticEducationException;
 
 import javax.jws.WebService;
 import javax.xml.bind.JAXBException;
-import javax.xml.soap.SOAPException;
 
 @WebService(
         serviceName = "MathWebService",
@@ -17,7 +17,7 @@ import javax.xml.soap.SOAPException;
 public class MathWebServiceImpl implements MathWebService {
 
     @Override
-    public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws JAXBException {
+    public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws QuadraticEducationException {
         GetSolutionQuadraticEquationResponse response = new GetSolutionQuadraticEquationResponse();
 
         if (request.getA() != 0) {
@@ -34,10 +34,14 @@ public class MathWebServiceImpl implements MathWebService {
                 return response;
             }
 //            throw new SOAPException("A < 0");
-            throw new JAXBException("A must be != 0");
+//            throw new JAXBException("A must be != 0");
+            throw new QuadraticEducationException("A must be != 0");
+
         } else {
 //            throw new SOAPException("Coefficient 'A' mustn't be equal 0");
-            throw new JAXBException("Coefficient 'A' mustn't be equal 0");
+//            throw new JAXBException("Coefficient 'A' mustn't be equal 0");
+            throw new QuadraticEducationException("Coefficient 'A' mustn't be equal 0",
+                    new ErrorResponseMessage("This formula", 15.0));
         }
     }
 }

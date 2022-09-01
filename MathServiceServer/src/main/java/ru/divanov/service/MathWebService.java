@@ -2,6 +2,7 @@ package ru.divanov.service;
 
 import ru.divanov.dto.GetQuadraticEducationSolution;
 import ru.divanov.dto.GetSolutionQuadraticEquationResponse;
+import ru.divanov.exceptions.QuadraticEducationException;
 
 import javax.jws.WebMethod;
 import javax.jws.WebResult;
@@ -28,5 +29,5 @@ public interface MathWebService {
             localName = "getSolutionQuadraticEquationResponse",
             targetNamespace = "http://ru.divanov",
             className = "ru.divanov.model.GetSolutionQuadraticEquationResponse")
-    GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws SOAPException, JAXBException;
+    GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws QuadraticEducationException;
 }

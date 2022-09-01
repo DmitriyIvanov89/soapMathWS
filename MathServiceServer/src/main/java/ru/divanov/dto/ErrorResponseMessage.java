@@ -1,4 +1,4 @@
-package ru.divanov.dto.exceptions;
+package ru.divanov.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
