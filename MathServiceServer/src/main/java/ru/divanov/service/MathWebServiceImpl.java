@@ -14,28 +14,45 @@ import javax.jws.WebService;
         endpointInterface = "ru.divanov.service.MathWebService")
 public class MathWebServiceImpl implements MathWebService {
 
+    private static final String ERROR_PARAM_A_MESSAGE = "Coefficient A value mustn't be equal 0";
+    private static final String ERROR_DISCRIMINANT_VALUE = "Discriminant less than 0";
+
     @Override
     public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws QuadraticEducationException {
         GetSolutionQuadraticEquationResponse response = new GetSolutionQuadraticEquationResponse();
 
         if (request.getA() != 0) {
             response.setDiscriminant(Math.pow(request.getB(), 2) - 4 * request.getA() * request.getC());
-            String formula = String.format("%.1fX^2+%.1fX+%.1f=0", request.getA(), request.getB(), request.getC());
             if (response.getDiscriminant() > 0) {
-                response.setFormula(formula);
+                response.setFormula(generateEducationFormula(request.getA(), request.getB(), request.getC()));
                 response.setX1((-request.getB() + Math.sqrt(response.getDiscriminant())) / (2 * request.getA()));
                 response.setX2((-request.getB() - Math.sqrt(response.getDiscriminant())) / (2 * request.getA()));
                 return response;
             } else if (response.getDiscriminant() == 0) {
-                response.setFormula(formula);
+                response.setFormula(generateEducationFormula(request.getA(), request.getB(), request.getC()));
                 response.setX1(-request.getB() / (2 * request.getA()));
                 return response;
             }
-            throw new QuadraticEducationException("A must be != 0");
-
+            throw new QuadraticEducationException(
+                    ERROR_DISCRIMINANT_VALUE,
+                    new ErrorResponseMessage(
+                            generateEducationFormula(request.getA(), request.getB(), request.getC()),
+                            response.getDiscriminant()));
         } else {
-            throw new QuadraticEducationException("Coefficient 'A' mustn't be equal 0",
-                    new ErrorResponseMessage("This test formula", 15.0));
+            throw new QuadraticEducationException(ERROR_PARAM_A_MESSAGE);
         }
     }
+
+    private static String generateEducationFormula(double a, double b, double c) {
+        if (b == 0 && c == 0) {
+            return String.format("%.1fx^2 = 0", a);
+        } else if (b == 0 && c != 0) {
+            return String.format("%.1fx^2 + %.1f = 0", a, c);
+        } else if (b != 0 && c == 0) {
+            return String.format("%.1fx^2 + %.1fx = 0", a, b);
+        }
+
+        return String.format("%.1fx^2 + %.1fx + %.1f = 0", a, b, c);
+    }
 }
+
