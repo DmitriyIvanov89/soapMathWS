@@ -16,6 +16,10 @@ public class ErrorResponseMessage {
     public ErrorResponseMessage() {
     }
 
+    public ErrorResponseMessage(String formula) {
+        this.formula = formula;
+    }
+
     public ErrorResponseMessage(String formula, Double discriminant) {
         this.formula = formula;
         this.discriminant = discriminant;

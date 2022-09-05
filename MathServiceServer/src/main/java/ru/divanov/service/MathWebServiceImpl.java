@@ -16,12 +16,37 @@ public class MathWebServiceImpl implements MathWebService {
 
     private static final String ERROR_PARAM_A_MESSAGE = "Coefficient A value mustn't be equal 0";
     private static final String ERROR_DISCRIMINANT_VALUE = "Discriminant less than 0";
+    private static final String NO_REAL_ROOTS = "The equation has no real roots";
+
+    // TODO refactor this method!!! It's ugly!!!
+    // TODO In case where b = 0 & c = 0 response x1 = -0.0
 
     @Override
     public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws QuadraticEducationException {
         GetSolutionQuadraticEquationResponse response = new GetSolutionQuadraticEquationResponse();
 
         if (request.getA() != 0) {
+            if (request.getB() == 0 && request.getC() == 0) {
+                response.setFormula(generateEducationFormula(request.getA(), request.getB(), request.getC()));
+                response.setX1(0.0);
+                return response;
+            } else if (request.getB() == 0 && request.getC() != 0) {
+                response.setFormula(generateEducationFormula(request.getA(), request.getB(), request.getC()));
+                if (-(request.getC() / request.getA()) > 0) {
+                    response.setX1(Math.sqrt(-(request.getC() / request.getA())));
+                    response.setX2(-(Math.sqrt(-(request.getC() / request.getA()))));
+                    return response;
+                } else {
+                    throw new QuadraticEducationException(
+                            NO_REAL_ROOTS,
+                            new ErrorResponseMessage(response.getFormula(generateEducationFormula(request.getA(), request.getB(), request.getC()))));
+                }
+            } else if (request.getB() != 0 && request.getC() == 0) {
+                response.setFormula(generateEducationFormula(request.getA(), request.getB(), request.getC()));
+                response.setX1(0.0);
+                response.setX2(-(request.getB() / request.getA()));
+                return response;
+            }
             response.setDiscriminant(Math.pow(request.getB(), 2) - 4 * request.getA() * request.getC());
             if (response.getDiscriminant() > 0) {
                 response.setFormula(generateEducationFormula(request.getA(), request.getB(), request.getC()));

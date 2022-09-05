@@ -17,7 +17,7 @@ public class GetSolutionQuadraticEquationResponse {
     @XmlElement(name = "X2")
     private Double x2;
 
-    public String getFormula() {
+    public String getFormula(String s) {
         return formula;
     }
 
