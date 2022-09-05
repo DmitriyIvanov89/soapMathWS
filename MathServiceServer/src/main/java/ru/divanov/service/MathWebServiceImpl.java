@@ -1,13 +1,11 @@
 package ru.divanov.service;
 
-
 import ru.divanov.dto.ErrorResponseMessage;
 import ru.divanov.dto.GetQuadraticEducationSolution;
 import ru.divanov.dto.GetSolutionQuadraticEquationResponse;
 import ru.divanov.exceptions.QuadraticEducationException;
 
 import javax.jws.WebService;
-import javax.xml.bind.JAXBException;
 
 @WebService(
         serviceName = "MathWebService",
@@ -33,15 +31,11 @@ public class MathWebServiceImpl implements MathWebService {
                 response.setX1(-request.getB() / (2 * request.getA()));
                 return response;
             }
-//            throw new SOAPException("A < 0");
-//            throw new JAXBException("A must be != 0");
             throw new QuadraticEducationException("A must be != 0");
 
         } else {
-//            throw new SOAPException("Coefficient 'A' mustn't be equal 0");
-//            throw new JAXBException("Coefficient 'A' mustn't be equal 0");
             throw new QuadraticEducationException("Coefficient 'A' mustn't be equal 0",
-                    new ErrorResponseMessage("This formula", 15.0));
+                    new ErrorResponseMessage("This test formula", 15.0));
         }
     }
 }
