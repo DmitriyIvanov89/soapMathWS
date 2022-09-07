@@ -14,12 +14,14 @@ import javax.jws.WebService;
         endpointInterface = "ru.divanov.service.MathWebService")
 public class MathWebServiceImpl implements MathWebService {
 
-    private static final String ERROR_PARAM_A_MESSAGE = "Coefficient A value mustn't be equal 0";
-    private static final String ERROR_DISCRIMINANT_VALUE = "Discriminant less than 0";
+    private static final String ERROR_PARAM_A_MESSAGE = "Coefficient A can't be equal 0";
+    private static final String ERROR_DISCRIMINANT_VALUE = "Discriminant can't be less than 0";
     private static final String NO_REAL_ROOTS = "The equation has no real roots";
 
     // TODO refactor this method!!! It's ugly!!!
-    // TODO In case where b = 0 & c = 0 response x1 = -0.0
+    /**
+     * In case where b = 0 & c = 0 response x1 = -0.0
+     */
 
     @Override
     public GetSolutionQuadraticEquationResponse getSolutionQuadraticEducation(GetQuadraticEducationSolution request) throws QuadraticEducationException {
