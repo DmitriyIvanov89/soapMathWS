@@ -18,6 +18,15 @@ public class GetQuadraticEducationSolution {
         return a;
     }
 
+    public GetQuadraticEducationSolution(Double a, Double b, Double c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    public GetQuadraticEducationSolution() {
+    }
+
     public void setA(Double a) {
         this.a = a;
     }

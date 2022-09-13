@@ -14,11 +14,14 @@ import javax.xml.ws.ResponseWrapper;
 @WebService(
         name = "MathWebService",
         targetNamespace = "http://ru.divanov/")
-@SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL, parameterStyle = SOAPBinding.ParameterStyle.BARE)
+@SOAPBinding(
+        style = SOAPBinding.Style.DOCUMENT,
+        use = SOAPBinding.Use.LITERAL,
+        parameterStyle = SOAPBinding.ParameterStyle.BARE)
 public interface MathWebService {
 
     @WebMethod(action = "http://ru.divanov/", operationName = "getSolutionQuadraticEducation")
-    @WebResult(name = "return", targetNamespace = "http://ru.divanov")
+//    @WebResult(name = "return", targetNamespace = "http://ru.divanov")
     @RequestWrapper(
             localName = "getSolutionQuadraticEquation",
             targetNamespace = "http://ru.divanov",

@@ -17,6 +17,16 @@ public class GetSolutionQuadraticEquationResponse {
     @XmlElement(name = "X2")
     private Double x2;
 
+    public GetSolutionQuadraticEquationResponse(String formula, Double discriminant, Double x1, Double x2) {
+        this.formula = formula;
+        this.discriminant = discriminant;
+        this.x1 = x1;
+        this.x2 = x2;
+    }
+
+    public GetSolutionQuadraticEquationResponse() {
+    }
+
     public String getFormula(String s) {
         return formula;
     }
